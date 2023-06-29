@@ -1,19 +1,11 @@
 package com.vlad.libraryjparest.controller;
 
 
-import com.vlad.libraryjparest.entity.Book;
 import com.vlad.libraryjparest.entity.Client;
-import com.vlad.libraryjparest.exception_handling.NoSuchClientException;
 import com.vlad.libraryjparest.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

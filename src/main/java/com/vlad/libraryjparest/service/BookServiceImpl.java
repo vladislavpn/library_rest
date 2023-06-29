@@ -3,6 +3,8 @@ package com.vlad.libraryjparest.service;
 
 import com.vlad.libraryjparest.entity.Book;
 import com.vlad.libraryjparest.entity.Client;
+import com.vlad.libraryjparest.exception_handling.book_exception.BookAlreadyExistsException;
+import com.vlad.libraryjparest.exception_handling.book_exception.NoSuchBookException;
 import com.vlad.libraryjparest.util.ExpirationCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +25,9 @@ public class BookServiceImpl implements BookService{
     private BookRepository bookRepository;
 
     @Autowired
+    private ClientService clientService;
+
+    @Autowired
     private ExpirationCalculator expirationCalculator;
 
     @Override
@@ -34,35 +39,40 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public void saveBook(Book book) {
+    public void addBook(Book book) {
+        Boolean bookExists = bookRepository.existsBookByTitleAndAuthorAndPublished(book.getTitle(),
+                book.getAuthor(), book.getPublished());
+        if(bookExists) throw new BookAlreadyExistsException("Such book is already available");
         bookRepository.save(book);
     }
 
     @Override
     public Book getBook(int id) {
+        if(!bookRepository.existsById(id))
+            throw new NoSuchBookException("There is no book with id = " + id);
         return bookRepository.findById(id).get();
     }
 
     @Override
     public void deleteBook(int id) {
+        if(!bookRepository.existsById(id))
+            throw new NoSuchBookException("There is no book with id = " + id);
         bookRepository.deleteById(id);
     }
 
     @Override
-    public Client getOwner(int id) {
-        return bookRepository.findById(id).get().getClient();
-    }
-
-    @Override
-    public void assign(Book book, Client client) {
+    public Book assign(int bookId, int clientId) {
+        Book book = getBook(bookId);
+        Client client = clientService.getClient(clientId);
         book.setClient(client);
-        bookRepository.save(book);
+        return bookRepository.save(book);
     }
 
     @Override
-    public void release(Book book) {
+    public Book returnBook(int id) {
+        Book book = getBook(id);
         book.setClient(null);
-        bookRepository.save(book);
+        return bookRepository.save(book);
     }
 
     @Override
@@ -70,6 +80,8 @@ public class BookServiceImpl implements BookService{
                                                   String author, String title) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         List<Book> books = bookRepository.findAllByAuthorAndTitle(author, title, pageable);
+        if(books.isEmpty()) throw new NoSuchBookException("There is no book with author" +
+                author + " and title " + title);
         books.forEach(book -> expirationCalculator.calculate(book));
         return books;
     }
@@ -78,6 +90,7 @@ public class BookServiceImpl implements BookService{
     public List<Book> getAllBooksByAuthor(int pageNo, int pageSize, String author) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         List<Book> books = bookRepository.findByAuthor(author, pageable);
+        if(books.isEmpty()) throw new NoSuchBookException("There is no book with author " + author);
         books.forEach(book -> expirationCalculator.calculate(book));
         return books;
     }
@@ -86,6 +99,7 @@ public class BookServiceImpl implements BookService{
     public List<Book> getAllBooksByTitle(int pageNo, int pageSize, String title) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         List<Book> books = bookRepository.findAllByTitle(title, pageable);
+        if(books.isEmpty()) throw new NoSuchBookException("There is no book with title" + title);
         books.forEach(book -> expirationCalculator.calculate(book));
         return books;
     }

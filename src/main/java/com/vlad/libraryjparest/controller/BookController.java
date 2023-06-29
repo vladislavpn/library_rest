@@ -38,7 +38,7 @@ public class BookController {
 
     @PostMapping("/books")
     public Book addNewBook(@RequestBody Book book) {
-        bookService.saveBook(book);
+        bookService.addBook(book);
         return book;
     }
 
@@ -55,24 +55,19 @@ public class BookController {
 
     @PatchMapping("/books")
     public Book updateBook(@RequestBody Book book) {
-        bookService.saveBook(book);
+        bookService.addBook(book);
         return book;
     }
 
 
-    @PatchMapping("books/{id}/release")
-    public Book releaseBook(@PathVariable int id) {
-        Book book = bookService.getBook(id);
-        bookService.release(book);
-        return book;
+    @PatchMapping("books/{id}/return")
+    public Book returnBook(@PathVariable int id) {
+        return bookService.returnBook(id);
     }
 
-    @PatchMapping("books/{id}/assign/{clientId}")
-    public Book assignBook(@PathVariable int id, @PathVariable int clientId) {
-        Book book = bookService.getBook(id);
-        Client client = clientService.getClient(clientId);
-        book.setClient(client);
-        return book;
+    @PatchMapping("books/{bookId}/assign/{clientId}")
+    public Book assignBook(@PathVariable int bookId, @PathVariable int clientId) {
+        return bookService.assign(bookId, clientId);
     }
 }
 

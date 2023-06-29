@@ -13,12 +13,11 @@ import java.util.List;
 public interface BookService {
 
     public List<Book> getAllBooks(int pageNo, int pageSize);
-    public void saveBook(Book book);
+    public void addBook(Book book);
     public Book getBook(int id);
     public void deleteBook(int id);
-    public Client getOwner(int id);
-    public void assign(Book book, Client client);
-    public void release(Book book);
+    public Book assign(int bookId, int clientId);
+    public Book returnBook(int id);
 
     public List<Book> getAllBooksByAuthorAndTitle(int pageNo, int pageSize,
                                                   String author, String title);

@@ -1,13 +1,11 @@
 package com.vlad.libraryjparest.service;
 
 
-import com.vlad.libraryjparest.entity.Book;
 import com.vlad.libraryjparest.entity.Client;
-import com.vlad.libraryjparest.exception_handling.ClientAlreadyExistsException;
-import com.vlad.libraryjparest.exception_handling.NoSuchClientException;
+import com.vlad.libraryjparest.exception_handling.client_exception.ClientAlreadyExistsException;
+import com.vlad.libraryjparest.exception_handling.client_exception.NoSuchClientException;
 import com.vlad.libraryjparest.util.ExpirationCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
