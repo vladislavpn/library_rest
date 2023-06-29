@@ -1,0 +1,17 @@
+[33mcommit d61db10d8311c52310e48613767a781d7497c684[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Vlad Piven <piven.vlad2016@yandex.ru>
+Date:   Thu Jun 29 17:14:51 2023 +0300
+
+    add BookGlovalExceptionHandler.class
+
+[33mcommit 1d40e491a4663726ecfc7b3092290078b84cb688[m
+Author: Vlad Piven <piven.vlad2016@yandex.ru>
+Date:   Thu Jun 29 16:58:35 2023 +0300
+
+    stable
+
+[33mcommit 1bdb285ce504ff76f2882fa320a0ca9b9edff193[m
+Author: Vlad Piven <piven.vlad2016@yandex.ru>
+Date:   Thu Jun 29 15:24:34 2023 +0300
+
+    stable ver
