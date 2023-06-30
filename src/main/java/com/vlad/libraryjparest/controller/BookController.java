@@ -19,8 +19,6 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @Autowired
-    private ClientService clientService;
 
     @GetMapping("/books")
     public List<Book> allBooks(@RequestParam(required = false) String author,
