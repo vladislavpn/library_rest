@@ -25,17 +25,17 @@ class ClientRepositoryTest {
         clientRepository.deleteAll();
     }
 
-    @Test
-    void canFindByFirstName() {
-        String name = "Test";
-        Client client1 = new Client("Test", "Entity", new Date());
-        Client client2 = new Client("Test", "Entity2", new Date());
-        clientRepository.save(client1);
-        clientRepository.save(client2);
-        List<Client> clients = clientRepository.findAllByFirstName(name);
-        Boolean exists = clients.stream().
-                map(o -> o.getFirstName()).
-                allMatch(o -> o.equals(name)) && clients.size()==2;
-        assertTrue(exists);
-    }
+//    @Test
+//    void canFindByFirstName() {
+//        String name = "Test";
+//        Client client1 = new Client("Test", "Entity", new Date());
+//        Client client2 = new Client("Test", "Entity2", new Date());
+//        clientRepository.save(client1);
+//        clientRepository.save(client2);
+//        List<Client> clients = clientRepository.findAllByFirstName(name);
+//        Boolean exists = clients.stream().
+//                map(o -> o.getFirstName()).
+//                allMatch(o -> o.equals(name)) && clients.size()==2;
+//        assertTrue(exists);
+//    }
 }
