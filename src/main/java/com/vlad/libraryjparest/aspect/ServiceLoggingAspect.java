@@ -18,7 +18,7 @@ import java.util.logging.SimpleFormatter;
 @Aspect
 public class ServiceLoggingAspect {
 
-    Logger log = Logger.getLogger("Every service logger");
+    Logger log = Logger.getLogger("Service layer");
     FileHandler fileHandler;
     String loggingFile = "service.log";
 

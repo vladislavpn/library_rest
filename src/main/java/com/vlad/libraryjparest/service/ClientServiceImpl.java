@@ -33,12 +33,12 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public void saveClient(Client client) {
+    public Client saveClient(Client client) {
         Boolean clientExists = clientRepository
                 .existsClientByFirstNameAndLastNameAndBirthday(client.getFirstName(),
                         client.getLastName(), client.getBirthday());
         if(clientExists) throw new ClientAlreadyExistsException("Such client already exists");
-        clientRepository.save(client);
+        return clientRepository.save(client);
     }
 
     @Override
@@ -54,6 +54,18 @@ public class ClientServiceImpl implements ClientService{
         if(!clientRepository.existsClientById(id))
             throw new NoSuchClientException("There is no client with id = " + id);
         clientRepository.deleteById(id);
+    }
+
+    @Override
+    public Client updateClient(Client client, int id) {
+        if(!clientRepository.existsClientById(id))
+            throw new NoSuchClientException("There is no client with id = " + id);
+        return clientRepository.findById(id).map(persisted -> {
+            persisted.setFirstName(client.getFirstName());
+            persisted.setLastName(client.getLastName());
+            persisted.setBirthday(client.getBirthday());
+            return clientRepository.save(persisted);
+        }).get();
     }
 
     @Override

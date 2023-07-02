@@ -14,11 +14,6 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @GetMapping("/info")
-    public String info(){
-        return "some info";
-    }
-
     @GetMapping("/clients")
     public List<Client> allClients(@RequestParam(required = false) String name,
                                    @RequestParam(required = false) String lastName,
@@ -52,10 +47,9 @@ public class ClientController {
         return "Client with id = " + id + " was deleted";
     }
 
-    @PatchMapping("/clients")
-    public Client updateClient(@RequestBody Client client){
-        clientService.saveClient(client);
-        return client;
+    @PatchMapping("/clients/{id}")
+    public Client updateClient(@RequestBody Client client, @PathVariable int id){
+        return clientService.updateClient(client, id);
     }
 
 }

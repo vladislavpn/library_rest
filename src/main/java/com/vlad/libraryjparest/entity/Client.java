@@ -48,9 +48,9 @@ public class Client {
     public Client() {
     }
 
-    public Client(String firstName, String secondName, Date birthday) {
+    public Client(String firstName, String lastName, Date birthday) {
         this.firstName = firstName;
-        this.lastName = secondName;
+        this.lastName = lastName;
         this.birthday = birthday;
     }
 
@@ -74,8 +74,8 @@ public class Client {
         return lastName;
     }
 
-    public void setLastName(String secondName) {
-        this.lastName = secondName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Date getBirthday() {
