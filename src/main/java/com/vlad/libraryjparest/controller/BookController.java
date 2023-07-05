@@ -51,10 +51,9 @@ public class BookController {
         return "Book with id " + id + " was successfully deleted";
     }
 
-    @PatchMapping("/books")
-    public Book updateBook(@RequestBody Book book) {
-        bookService.addBook(book);
-        return book;
+    @PatchMapping("/books/{id}")
+    public Book updateBook(@RequestBody Book book, @PathVariable int id) {
+        return bookService.updateBook(book, id);
     }
 
 

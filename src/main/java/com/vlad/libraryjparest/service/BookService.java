@@ -14,6 +14,7 @@ public interface BookService {
 
     public List<Book> getAllBooks(int pageNo, int pageSize);
     public void addBook(Book book);
+    public Book updateBook(Book book, int id);
     public Book getBook(int id);
     public void deleteBook(int id);
     public Book assign(int bookId, int clientId);

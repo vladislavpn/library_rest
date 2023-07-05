@@ -18,5 +18,4 @@ public interface ClientRepository extends JpaRepository<Client, Integer>{
     public List<Client> findByFirstNameAndLastName(String name, String lastName, Pageable pageable);
     public Boolean existsClientByFirstNameAndLastNameAndBirthday(String firstName, String lastName,
                                                               Date birthday);
-    public Boolean existsClientById(int id);
 }

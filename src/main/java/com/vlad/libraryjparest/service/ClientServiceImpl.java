@@ -46,19 +46,19 @@ public class ClientServiceImpl implements ClientService{
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new NoSuchClientException("There is no client with id = " + id));
         client.getBooks().forEach(expirationCalculator::calculate);
-        return clientRepository.findById(id).get();
+        return client;
     }
 
     @Override
     public void deleteClient(int id) {
-        if(!clientRepository.existsClientById(id))
+        if(!clientRepository.existsById(id))
             throw new NoSuchClientException("There is no client with id = " + id);
         clientRepository.deleteById(id);
     }
 
     @Override
     public Client updateClient(Client client, int id) {
-        if(!clientRepository.existsClientById(id))
+        if(!clientRepository.existsById(id))
             throw new NoSuchClientException("There is no client with id = " + id);
         return clientRepository.findById(id).map(persisted -> {
             persisted.setFirstName(client.getFirstName());
@@ -72,7 +72,7 @@ public class ClientServiceImpl implements ClientService{
     public List<Client> getClientsByFirstName(int pageNo, int pageSize, String name) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         List<Client> clients = clientRepository.findByFirstName(name, pageable);
-        if(clients.isEmpty()) throw new NoSuchClientException("There is no client with name: " + name);
+        if(clients.isEmpty()) throw new NoSuchClientException("There is no client with first name: " + name);
         clients.forEach(c -> c.getBooks().forEach(expirationCalculator::calculate));
         return clients;
     }

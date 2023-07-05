@@ -5,6 +5,7 @@ import com.vlad.libraryjparest.entity.Book;
 import com.vlad.libraryjparest.entity.Client;
 import com.vlad.libraryjparest.exception_handling.book_exception.BookAlreadyExistsException;
 import com.vlad.libraryjparest.exception_handling.book_exception.NoSuchBookException;
+import com.vlad.libraryjparest.exception_handling.client_exception.NoSuchClientException;
 import com.vlad.libraryjparest.util.ExpirationCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -27,14 +28,11 @@ public class BookServiceImpl implements BookService{
     @Autowired
     private ClientService clientService;
 
-    @Autowired
-    private ExpirationCalculator expirationCalculator;
 
     @Override
     public List<Book> getAllBooks(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         List<Book> books = bookRepository.findAll(pageable).getContent();
-        books.forEach(book -> expirationCalculator.calculate(book));
         return books;
     }
 
@@ -44,6 +42,18 @@ public class BookServiceImpl implements BookService{
                 book.getAuthor(), book.getPublished());
         if(bookExists) throw new BookAlreadyExistsException("Such book is already available");
         bookRepository.save(book);
+    }
+
+    @Override
+    public Book updateBook(Book book, int id) {
+        if(!bookRepository.existsById(id))
+            throw new NoSuchBookException("There is no book with id = " + id);
+        return bookRepository.findById(id).map(persisted -> {
+            persisted.setAuthor(book.getAuthor());
+            persisted.setTitle(book.getTitle());
+            persisted.setPublished(book.getPublished());
+            return bookRepository.save(persisted);
+        }).get();
     }
 
     @Override
@@ -62,16 +72,22 @@ public class BookServiceImpl implements BookService{
 
     @Override
     public Book assign(int bookId, int clientId) {
+        if(!bookRepository.existsById(bookId))
+            throw new NoSuchBookException("There is no book with id = " + bookId);
         Book book = getBook(bookId);
         Client client = clientService.getClient(clientId);
         book.setClient(client);
+        book.setDateAcquired(new Date());
         return bookRepository.save(book);
     }
 
     @Override
     public Book returnBook(int id) {
+        if(!bookRepository.existsById(id))
+            throw new NoSuchBookException("There is no book with id = " + id);
         Book book = getBook(id);
         book.setClient(null);
+        book.setDateAcquired(null);
         return bookRepository.save(book);
     }
 
@@ -80,9 +96,8 @@ public class BookServiceImpl implements BookService{
                                                   String author, String title) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         List<Book> books = bookRepository.findAllByAuthorAndTitle(author, title, pageable);
-        if(books.isEmpty()) throw new NoSuchBookException("There is no book with author" +
+        if(books.isEmpty()) throw new NoSuchBookException("There is no book with author " +
                 author + " and title " + title);
-        books.forEach(book -> expirationCalculator.calculate(book));
         return books;
     }
 
@@ -91,7 +106,6 @@ public class BookServiceImpl implements BookService{
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         List<Book> books = bookRepository.findByAuthor(author, pageable);
         if(books.isEmpty()) throw new NoSuchBookException("There is no book with author " + author);
-        books.forEach(book -> expirationCalculator.calculate(book));
         return books;
     }
 
@@ -99,8 +113,7 @@ public class BookServiceImpl implements BookService{
     public List<Book> getAllBooksByTitle(int pageNo, int pageSize, String title) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         List<Book> books = bookRepository.findAllByTitle(title, pageable);
-        if(books.isEmpty()) throw new NoSuchBookException("There is no book with title" + title);
-        books.forEach(book -> expirationCalculator.calculate(book));
+        if(books.isEmpty()) throw new NoSuchBookException("There is no book with title " + title);
         return books;
     }
 }

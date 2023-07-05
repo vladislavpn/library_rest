@@ -1,48 +1,16 @@
-июл. 03, 2023 12:16:26 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Begin of getClient method
-июл. 03, 2023 12:16:26 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Arguments: [7]
-июл. 03, 2023 12:16:26 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: End of getClient method
-июл. 03, 2023 12:16:26 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: Client{id=7, firstName='Elizaveta', secondName='Gvozdina', birthday=1998-11-25, books=[]}
-июл. 03, 2023 12:16:31 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Begin of updateClient method
-июл. 03, 2023 12:16:31 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Arguments: [Client{id=0, firstName='Elizaveta', secondName='Gvozdina', birthday=Thu Nov 26 03:00:00 MSK 1998, books=null}, 7]
-июл. 03, 2023 12:16:31 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: End of updateClient method
-июл. 03, 2023 12:16:31 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: Client{id=7, firstName='Elizaveta', secondName='Gvozdina', birthday=Thu Nov 26 03:00:00 MSK 1998, books=[]}
-июл. 03, 2023 12:16:36 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Begin of updateClient method
-июл. 03, 2023 12:16:36 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Arguments: [Client{id=0, firstName='Elizaveta', secondName='Gvozdina', birthday=Wed Nov 25 03:00:00 MSK 1998, books=null}, 7]
-июл. 03, 2023 12:16:36 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: End of updateClient method
-июл. 03, 2023 12:16:36 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: Client{id=7, firstName='Elizaveta', secondName='Gvozdina', birthday=Wed Nov 25 03:00:00 MSK 1998, books=[]}
-июл. 03, 2023 12:16:57 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Begin of saveClient method
-июл. 03, 2023 12:16:57 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Arguments: [Client{id=0, firstName='Elizavetaaa', secondName='Gvozdina', birthday=Wed Nov 25 03:00:00 MSK 1998, books=null}]
-июл. 03, 2023 12:16:57 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: End of saveClient method
-июл. 03, 2023 12:16:57 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: Client{id=13, firstName='Elizavetaaa', secondName='Gvozdina', birthday=Wed Nov 25 03:00:00 MSK 1998, books=null}
-июл. 03, 2023 12:17:03 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Begin of deleteClient method
-июл. 03, 2023 12:17:03 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Arguments: [13]
-июл. 03, 2023 12:17:03 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: End of deleteClient method
-июл. 03, 2023 12:17:03 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: null
-июл. 03, 2023 12:17:08 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+июл. 03, 2023 11:03:09 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: Begin of getAllClients method
-июл. 03, 2023 12:17:08 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+июл. 03, 2023 11:03:09 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: Arguments: [0, 10]
-июл. 03, 2023 12:17:08 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+июл. 03, 2023 11:03:09 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: End of getAllClients method
-июл. 03, 2023 12:17:08 AM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: [Client{id=1, firstName='Vladislav', secondName='Piven', birthday=1999-05-30, books=[com.vlad.libraryjparest.entity.Book@b441b8, com.vlad.libraryjparest.entity.Book@5c92e3ab]}, Client{id=2, firstName='Steve', secondName=''O', birthday=1982-09-01, books=[com.vlad.libraryjparest.entity.Book@525d797e]}, Client{id=3, firstName='Michael', secondName='Oldman', birthday=1966-02-01, books=[com.vlad.libraryjparest.entity.Book@7ad29e3e]}, Client{id=4, firstName='Alex', secondName='Newman', birthday=1997-06-19, books=[]}, Client{id=7, firstName='Elizaveta', secondName='Gvozdina', birthday=1998-11-25, books=[]}]
+июл. 03, 2023 11:03:09 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: [Client{id=1, firstName='Vladislav', secondName='Piven', birthday=1999-05-30, books=[com.vlad.libraryjparest.entity.Book@4081c5c, com.vlad.libraryjparest.entity.Book@64a10aa4]}, Client{id=2, firstName='Steve', secondName=''O', birthday=1982-09-01, books=[com.vlad.libraryjparest.entity.Book@c1911a5]}, Client{id=3, firstName='Michael', secondName='Oldman', birthday=1966-02-01, books=[com.vlad.libraryjparest.entity.Book@2bfd9b60]}, Client{id=4, firstName='Alex', secondName='Newman', birthday=1997-06-19, books=[]}, Client{id=7, firstName='Elizaveta', secondName='Gvozdina', birthday=1998-11-25, books=[com.vlad.libraryjparest.entity.Book@59c749e0]}]
+июл. 03, 2023 11:03:18 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of getClient method
+июл. 03, 2023 11:03:18 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [4]
+июл. 03, 2023 11:03:18 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of getClient method
+июл. 03, 2023 11:03:18 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: Client{id=4, firstName='Alex', secondName='Newman', birthday=1997-06-19, books=[]}
