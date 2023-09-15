@@ -21,11 +21,7 @@ public class ClientController {
                                    @RequestParam(required = false, defaultValue = "0") int pageNo,
                                    @RequestParam(required = false, defaultValue = "10") int pageSize){
         List<Client> clients;
-        if(name != null && lastName != null) clients = clientService.getClientsByFullName(pageNo, pageSize,
-                name, lastName);
-        else if(name != null) clients = clientService.getClientsByFirstName(pageNo, pageSize, name);
-        else if(lastName != null) clients = clientService.getClientsByLastName(pageNo, pageSize, lastName);
-        else clients = clientService.getAllClients(pageNo, pageSize);
+        clients = clientService.getClientsByFullName(pageNo, pageSize, name, lastName);
         return clients;
     }
 

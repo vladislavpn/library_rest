@@ -94,6 +94,9 @@ public class BookServiceImpl implements BookService{
     @Override
     public List<Book> getAllBooksByAuthorAndTitle(int pageNo, int pageSize,
                                                   String author, String title) {
+        if(author != null && title == null) return getAllBooksByAuthor(pageNo, pageSize, author);
+        else if(title != null && author == null) return getAllBooksByTitle(pageNo, pageSize, title);
+        else if(title == null) return getAllBooks(pageNo, pageSize);
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         List<Book> books = bookRepository.findAllByAuthorAndTitle(author, title, pageable);
         if(books.isEmpty()) throw new NoSuchBookException("There is no book with author " +

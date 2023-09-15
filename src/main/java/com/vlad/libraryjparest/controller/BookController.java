@@ -27,11 +27,7 @@ public class BookController {
                                @RequestParam(value = "pageNo", required = false, defaultValue = "0") int pageNo,
                                @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize) {
         List<Book> books;
-        if(author != null && title != null) books = bookService
-                .getAllBooksByAuthorAndTitle(pageNo, pageSize, author, title);
-        else if(author != null) books = bookService.getAllBooksByAuthor(pageNo, pageSize, author);
-        else if(title != null) books = bookService.getAllBooksByTitle(pageNo, pageSize, title);
-        else books = bookService.getAllBooks(pageNo, pageSize);
+        books = bookService.getAllBooksByAuthorAndTitle(pageNo, pageSize, author, title);
         return books;
     }
 

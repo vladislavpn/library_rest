@@ -88,6 +88,9 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public List<Client> getClientsByFullName(int pageNo, int pageSize, String name, String lastName) {
+        if(name != null && lastName == null) return getClientsByFirstName(pageNo, pageSize, name);
+        else if(lastName != null && name == null) return getClientsByLastName(pageNo, pageSize, lastName);
+        else if(name == null) return getAllClients(pageNo, pageSize);
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         List<Client> clients = clientRepository.findByFirstNameAndLastName(name, lastName, pageable);
         if(clients.isEmpty())
