@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/clients")
 public class ClientController {
 
     @Autowired
     private ClientService clientService;
 
-    @GetMapping("/clients")
+    @GetMapping
     public List<Client> allClients(@RequestParam(required = false) String name,
                                    @RequestParam(required = false) String lastName,
                                    @RequestParam(required = false, defaultValue = "0") int pageNo,
@@ -28,26 +29,26 @@ public class ClientController {
         return clients;
     }
 
-    @GetMapping("/clients/{id}")
+    @GetMapping("/{id}")
     public Client clientInfo(@PathVariable int id){
         Client client = clientService.getClient(id);
         return client;
     }
 
 
-    @PostMapping ("/clients")
+    @PostMapping
     public Client addNewClient(@RequestBody Client client){
         clientService.saveClient(client);
         return client;
     }
 
-    @DeleteMapping("/clients/{id}")
+    @DeleteMapping("/{id}")
     public String deleteClient(@PathVariable int id){
         clientService.deleteClient(id);
         return "Client with id = " + id + " was deleted";
     }
 
-    @PatchMapping("/clients/{id}")
+    @PatchMapping("/{id}")
     public Client updateClient(@RequestBody Client client, @PathVariable int id){
         return clientService.updateClient(client, id);
     }
