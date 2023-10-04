@@ -2,6 +2,8 @@
 A RESTful API application to manage library accounting system with Spring Boot. 
 It features managing clients, books, assigning books to clients and implements some logic regarding calculating expiration date for the assigned books.
 
+API endpoint http://localhost:8080/library
+
 ## Structure
 ```
 ├── main
