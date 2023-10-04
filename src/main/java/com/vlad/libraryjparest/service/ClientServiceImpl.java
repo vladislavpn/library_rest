@@ -44,7 +44,7 @@ public class ClientServiceImpl implements ClientService{
     @Override
     public Client getClient(int id) {
         Client client = clientRepository.findById(id)
-                .orElseThrow(() -> new NoSuchClientException("There is no client with id = " + id));
+                .orElseThrow(() -> new NoSuchClientException("There is no client with id = " + id));;
         client.getBooks().forEach(expirationCalculator::calculate);
         return client;
     }

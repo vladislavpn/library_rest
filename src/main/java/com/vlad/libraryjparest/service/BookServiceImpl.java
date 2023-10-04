@@ -28,7 +28,6 @@ public class BookServiceImpl implements BookService{
     @Autowired
     private ClientService clientService;
 
-
     @Override
     public List<Book> getAllBooks(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);

@@ -6,6 +6,7 @@ import com.vlad.libraryjparest.exception_handling.client_exception.ClientAlready
 import com.vlad.libraryjparest.exception_handling.client_exception.NoSuchClientException;
 import com.vlad.libraryjparest.repository.ClientRepository;
 import com.vlad.libraryjparest.util.ExpirationByDays;
+import com.vlad.libraryjparest.util.ExpirationCalculator;
 import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -42,6 +43,12 @@ class ClientServiceImplTest {
     @Mock
     private ClientRepository repository;
 
+    @Mock
+    private ExpirationCalculator calculator;
+
+    @InjectMocks
+    private ClientServiceImpl service;
+
     private Client client;
 
     private int clientId = 1;
@@ -49,9 +56,6 @@ class ClientServiceImplTest {
     private int pageNo = 1;
     private int pageSize = 3;
 
-
-    @InjectMocks
-    private ClientServiceImpl service;
 
     @AfterEach
     void tearDown() {
