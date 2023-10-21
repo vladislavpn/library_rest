@@ -1,5 +1,4 @@
 package com.vlad.libraryjparest.repository;
-;
 import com.vlad.libraryjparest.entity.Client;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
