@@ -1,9 +1,9 @@
-package com.vlad.libraryjparest.exception_handling.user_exception;
+package com.vlad.libraryjparest.exception_handling.security_exception;
 
-public class UserIncorrectData {
+public class AuthIncorrectData {
     private String info;
 
-    public UserIncorrectData(String info) {
+    public AuthIncorrectData(String info) {
         this.info = info;
     }
 

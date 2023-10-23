@@ -2,6 +2,7 @@ package com.vlad.libraryjparest.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -34,8 +35,11 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth
-                        .anyRequest().authenticated())
+                .authorizeHttpRequests(auth -> {
+                    auth.requestMatchers("**").hasAuthority(Roles.ADMIN.getRole());
+                    auth.requestMatchers("/library/books").hasAuthority("USER");
+                    auth.anyRequest().authenticated();
+                })
                 .httpBasic(Customizer.withDefaults())
                 .build();
     }

@@ -1,17 +1,18 @@
 package com.vlad.libraryjparest.controller;
 
+import com.vlad.libraryjparest.dto.RegisterDTO;
 import com.vlad.libraryjparest.entity.User;
 import com.vlad.libraryjparest.repository.RoleRepository;
 import com.vlad.libraryjparest.repository.UserRepository;
+import com.vlad.libraryjparest.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.AccessType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
@@ -21,17 +22,14 @@ public class AuthController {
     PasswordEncoder encoder;
 
     @Autowired
-    RoleRepository roleRepository;
-
-    @Autowired
-    UserRepository userRepository;
+    AuthenticationService service;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody User user){
-        if(userRepository.findUserByUsername(user.getUsername()).isPresent()){
-            return new ResponseEntity<>("User already exists", HttpStatus.BAD_REQUEST);
-        }
-
+    public ResponseEntity<String> registerUser(@RequestBody RegisterDTO dto){
+        Optional<User> registered = service.registerUser(dto);
+        if(registered.isPresent())
+            return new ResponseEntity<>("User registered", HttpStatus.OK);
+        else return new ResponseEntity<>("An erorr occured", HttpStatus.CONFLICT);
     }
 
 }
