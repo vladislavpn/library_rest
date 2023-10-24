@@ -36,8 +36,11 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("**").hasAuthority(Roles.ADMIN.getRole());
-                    auth.requestMatchers("/library/books").hasAuthority("USER");
+                    auth.requestMatchers("/auth/**").hasAuthority(Roles.ADMIN.getRole());
+                    auth.requestMatchers(HttpMethod.GET, "/books")
+                            .permitAll();
+                    auth.requestMatchers("/books", "/books/**", "/clients", "/clients/**")
+                            .hasAnyAuthority(Roles.ADMIN.getRole(), Roles.EMPLOYEE.getRole());
                     auth.anyRequest().authenticated();
                 })
                 .httpBasic(Customizer.withDefaults())
