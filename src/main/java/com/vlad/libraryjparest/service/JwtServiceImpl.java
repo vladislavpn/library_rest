@@ -2,38 +2,57 @@ package com.vlad.libraryjparest.service;
 
 import com.vlad.libraryjparest.entity.User;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
+
+import javax.crypto.SecretKey;
+import java.security.Key;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
 
 @Service
 public class JwtServiceImpl implements JwtService{
 
-    private static final String SECRET_KEY = "fdb6185896c8824c88607f9381038da5b13c211f5a911b821012c0df868599bd";
+    private final SecretKey key = Jwts.SIG.HS256.key().build();
 
     @Override
     public String extractUsername(String token) {
-        return null;
+         return extractAllClaims(token).getPayload()
+                 .getSubject();
+    }
+
+    private Jws<Claims> extractAllClaims(String token){
+        return Jwts.parser()
+                .verifyWith(key)
+                .build().parseSignedClaims(token);
     }
 
     @Override
-    public String generateToken(User user) {
-        return null;
+    public String generateToken(UserDetails user) {
+        return Jwts.builder()
+                .subject(user.getUsername())
+                .expiration(new Date(System.currentTimeMillis() + (1000 * 60 * 5)))
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .signWith(key)
+                .compact();
     }
 
     @Override
-    public boolean isTokenValid(String token, User user) {
-        return false;
+    public boolean isTokenValid(String token, UserDetails user) {
+        final String username = extractUsername(token);
+        return (username.equals(user.getUsername()) && isTokenNonExpired(token));
     }
 
-    private Claims extractAllClaims(String token){
-        return Jwts.parserBuilder()
-                .setSigningKey(getSignInKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
-    }
-
-    private byte[] getSignInKey(){
-        return SECRET_KEY.getBytes();
+    private boolean isTokenNonExpired(String token){
+        return extractAllClaims(token).getPayload()
+                .getExpiration().before(new Date());
     }
 }
