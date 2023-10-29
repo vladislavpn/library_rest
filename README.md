@@ -59,7 +59,7 @@ The Library Management System is a RESTful Spring Boot application that provides
 * `PATCH` : Return a book to the library
 
 ## Expiration Calculator
-The system calculates whether a client has exceeded the maximum time allowed for a book to be assigned. This logic may be invoked in the background when necessary.
+The system calculates whether a client has exceeded the maximum time allowed for a book to be assigned. This logic is envoked everytime when info of a client with one or more acquired books is requested.
 
 ## Authentication and Authorization
 The application uses JWT (JSON Web Tokens) for user authentication. Users are assigned roles (ADMIN, STAFF, USER) and have access to different endpoints based on their roles.
