@@ -76,5 +76,5 @@ Configure the application's database properties in the application.properties or
 Build and run the application
 
 ## Getting Started
-For questions or issues, please contact Vlad at vladpive.mbox@gmail.com.
+For questions or issues, please contact Vlad at vladpiven.mbox@gmail.com.
 Thank you for checking out the Library Management System!
