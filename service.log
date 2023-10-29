@@ -1,40 +1,134 @@
-окт. 24, 2023 2:13:39 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of loginUser method
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [AuthenticationDTO(username=admin, password=admin)]
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: Begin of loadUserByUsername method
-окт. 24, 2023 2:13:39 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Arguments: [emp]
-окт. 24, 2023 2:13:39 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [admin]
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: End of loadUserByUsername method
-окт. 24, 2023 2:13:39 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: User(id=12, username=emp, password=$2a$10$3xUwdsvmGrppYH12BsXqJOf8jzNDACMsIm7AXxHpsWyKaYrNif5c., locked=false, authorities=[Role(id=3, authority=EMPLOYEE)])
-окт. 24, 2023 2:13:39 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Begin of getAllBooksByAuthorAndTitle method
-окт. 24, 2023 2:13:39 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: User(id=2, username=admin, password=$2a$10$p/DFVlA2AC0FggwsB71niOZLtlqroy6ec13Z/P3GwZ1q/fn6SLTbe, locked=false, authorities=[Role(id=1, authority=ADMIN)])
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of loadUserByUsername method
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [admin]
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of loadUserByUsername method
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: User(id=2, username=admin, password=$2a$10$p/DFVlA2AC0FggwsB71niOZLtlqroy6ec13Z/P3GwZ1q/fn6SLTbe, locked=false, authorities=[Role(id=1, authority=ADMIN)])
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of generateToken method
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [User(id=2, username=admin, password=$2a$10$p/DFVlA2AC0FggwsB71niOZLtlqroy6ec13Z/P3GwZ1q/fn6SLTbe, locked=false, authorities=[Role(id=1, authority=ADMIN)])]
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of generateToken method
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY5ODU5NTkzNywiaWF0IjoxNjk4NTk1NjM3fQ.P05XxO26-JZ3xv_7m2601IaM7MQQ8Q2hPnQRk8LJa4U
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of loginUser method
+окт. 29, 2023 4:07:17 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: Optional[eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY5ODU5NTkzNywiaWF0IjoxNjk4NTk1NjM3fQ.P05XxO26-JZ3xv_7m2601IaM7MQQ8Q2hPnQRk8LJa4U]
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of extractUsername method
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY5ODU5NTkzNywiaWF0IjoxNjk4NTk1NjM3fQ.P05XxO26-JZ3xv_7m2601IaM7MQQ8Q2hPnQRk8LJa4U]
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of extractUsername method
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: admin
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of loadUserByUsername method
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [admin]
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of loadUserByUsername method
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: User(id=2, username=admin, password=$2a$10$p/DFVlA2AC0FggwsB71niOZLtlqroy6ec13Z/P3GwZ1q/fn6SLTbe, locked=false, authorities=[Role(id=1, authority=ADMIN)])
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of isTokenValid method
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY5ODU5NTkzNywiaWF0IjoxNjk4NTk1NjM3fQ.P05XxO26-JZ3xv_7m2601IaM7MQQ8Q2hPnQRk8LJa4U, User(id=2, username=admin, password=$2a$10$p/DFVlA2AC0FggwsB71niOZLtlqroy6ec13Z/P3GwZ1q/fn6SLTbe, locked=false, authorities=[Role(id=1, authority=ADMIN)])]
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of isTokenValid method
+окт. 29, 2023 4:07:34 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: true
+окт. 29, 2023 4:07:35 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of getClientsByFullName method
+окт. 29, 2023 4:07:35 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: Arguments: [0, 10, null, null]
-окт. 24, 2023 2:13:39 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: End of getAllBooksByAuthorAndTitle method
-окт. 24, 2023 2:13:39 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: [Book(id=1, title=A Farewell to Arms, author=Ernest Hemingway, published=1929, dateAcquired=null, expired=null), Book(id=6, title=The Feynman Lectures on Physics, author=Richard Feynman, published=1963, dateAcquired=2023-10-04, expired=null), Book(id=2, title=Fight Club, author=Chuck Palahniuk, published=1996, dateAcquired=2023-08-04, expired=null), Book(id=3, title=All quit on the western front, author=Erich Maria Remarque, published=1929, dateAcquired=2023-09-04, expired=null), Book(id=4, title=A time to live and a time to die, author=Erich Maria Remarque, published=1958, dateAcquired=2023-09-27, expired=null), Book(id=5, title=Lord of the Flies, author=William Golding, published=1954, dateAcquired=2023-06-02, expired=null)]
-окт. 24, 2023 2:13:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+окт. 29, 2023 4:07:35 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of getClientsByFullName method
+окт. 29, 2023 4:07:35 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: [Client(id=2, firstName=Elizaveta, lastName=Gvozdina, birthday=1998-10-25), Client(id=3, firstName=Vladislav, lastName=Piven, birthday=1999-05-30), Client(id=4, firstName=Boris, lastName=Volkovsky, birthday=1998-08-06), Client(id=5, firstName=Vitaly, lastName=Kutepov, birthday=1998-09-07), Client(id=6, firstName=Veronika, lastName=Buraya, birthday=1998-09-02), Client(id=7, firstName=Ivan, lastName=Ratchin, birthday=1998-05-15), Client(id=9, firstName=Alexey, lastName=Kolmagorov, birthday=1999-05-30)]
+окт. 29, 2023 4:07:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of extractUsername method
+окт. 29, 2023 4:07:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY5ODU5NTkzNywiWF0IjoxNjk4NTk1NjM3fQ.P05XxO26-JZ3xv_7m2601IaM7MQQ8Q2hPnQRk8LJa4U]
+окт. 29, 2023 4:07:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect afterThrowingServiceMethods
+INFO: An exception was thrown: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of extractUsername method
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY5ODU5NTkzNywiaWF0IjoxNjk4NTk1NjM3fQ.P05XxO26-JZ3xv_7m2601IaM7MQQ8Q2hPnQRk8LJa4U]
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of extractUsername method
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: admin
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: Begin of loadUserByUsername method
-окт. 24, 2023 2:13:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Arguments: [user]
-окт. 24, 2023 2:13:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [admin]
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: End of loadUserByUsername method
-окт. 24, 2023 2:13:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: User(id=3, username=user, password=$2a$10$Na6zojWG3xX/jbe8QLhOy.R2VRvuc4825Sbk/slpmEUZ0SrouTpym, locked=false, authorities=[Role(id=2, authority=USER)])
-окт. 24, 2023 2:13:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Begin of getAllBooksByAuthorAndTitle method
-окт. 24, 2023 2:13:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: User(id=2, username=admin, password=$2a$10$p/DFVlA2AC0FggwsB71niOZLtlqroy6ec13Z/P3GwZ1q/fn6SLTbe, locked=false, authorities=[Role(id=1, authority=ADMIN)])
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of isTokenValid method
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY5ODU5NTkzNywiaWF0IjoxNjk4NTk1NjM3fQ.P05XxO26-JZ3xv_7m2601IaM7MQQ8Q2hPnQRk8LJa4U, User(id=2, username=admin, password=$2a$10$p/DFVlA2AC0FggwsB71niOZLtlqroy6ec13Z/P3GwZ1q/fn6SLTbe, locked=false, authorities=[Role(id=1, authority=ADMIN)])]
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of isTokenValid method
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: true
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of getClientsByFullName method
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: Arguments: [0, 10, null, null]
-окт. 24, 2023 2:13:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: End of getAllBooksByAuthorAndTitle method
-окт. 24, 2023 2:13:45 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: [Book(id=1, title=A Farewell to Arms, author=Ernest Hemingway, published=1929, dateAcquired=null, expired=null), Book(id=6, title=The Feynman Lectures on Physics, author=Richard Feynman, published=1963, dateAcquired=2023-10-04, expired=null), Book(id=2, title=Fight Club, author=Chuck Palahniuk, published=1996, dateAcquired=2023-08-04, expired=null), Book(id=3, title=All quit on the western front, author=Erich Maria Remarque, published=1929, dateAcquired=2023-09-04, expired=null), Book(id=4, title=A time to live and a time to die, author=Erich Maria Remarque, published=1958, dateAcquired=2023-09-27, expired=null), Book(id=5, title=Lord of the Flies, author=William Golding, published=1954, dateAcquired=2023-06-02, expired=null)]
-окт. 24, 2023 2:14:06 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of getClientsByFullName method
+окт. 29, 2023 4:07:49 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: [Client(id=2, firstName=Elizaveta, lastName=Gvozdina, birthday=1998-10-25), Client(id=3, firstName=Vladislav, lastName=Piven, birthday=1999-05-30), Client(id=4, firstName=Boris, lastName=Volkovsky, birthday=1998-08-06), Client(id=5, firstName=Vitaly, lastName=Kutepov, birthday=1998-09-07), Client(id=6, firstName=Veronika, lastName=Buraya, birthday=1998-09-02), Client(id=7, firstName=Ivan, lastName=Ratchin, birthday=1998-05-15), Client(id=9, firstName=Alexey, lastName=Kolmagorov, birthday=1999-05-30)]
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of extractUsername method
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY5ODU5NTkzNywiaWF0IjoxNjk4NTk1NjM3fQ.P05XxO26-JZ3xv_7m2601IaM7MQQ8Q2hPnQRk8LJa4U]
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of extractUsername method
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: admin
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: Begin of loadUserByUsername method
-окт. 24, 2023 2:14:06 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Arguments: [user]
-окт. 24, 2023 2:14:06 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [admin]
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
 INFO: End of loadUserByUsername method
-окт. 24, 2023 2:14:06 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
-INFO: Method return value: User(id=3, username=user, password=$2a$10$Na6zojWG3xX/jbe8QLhOy.R2VRvuc4825Sbk/slpmEUZ0SrouTpym, locked=false, authorities=[Role(id=2, authority=USER)])
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: User(id=2, username=admin, password=$2a$10$p/DFVlA2AC0FggwsB71niOZLtlqroy6ec13Z/P3GwZ1q/fn6SLTbe, locked=false, authorities=[Role(id=1, authority=ADMIN)])
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of isTokenValid method
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY5ODU5NTkzNywiaWF0IjoxNjk4NTk1NjM3fQ.P05XxO26-JZ3xv_7m2601IaM7MQQ8Q2hPnQRk8LJa4U, User(id=2, username=admin, password=$2a$10$p/DFVlA2AC0FggwsB71niOZLtlqroy6ec13Z/P3GwZ1q/fn6SLTbe, locked=false, authorities=[Role(id=1, authority=ADMIN)])]
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of isTokenValid method
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: true
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Begin of getClient method
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Arguments: [2]
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: End of getClient method
+окт. 29, 2023 4:07:55 PM com.vlad.libraryjparest.aspect.ServiceLoggingAspect aroundAllServiceMethods
+INFO: Method return value: Client(id=2, firstName=Elizaveta, lastName=Gvozdina, birthday=1998-10-25)

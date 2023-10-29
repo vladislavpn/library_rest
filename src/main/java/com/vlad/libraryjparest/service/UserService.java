@@ -22,4 +22,12 @@ public class UserService implements UserDetailsService {
         Optional<User> user = repository.findUserByUsername(username);
         return user.orElseThrow(() -> new UsernameNotFoundException("No user with username:" + username));
     }
+
+    public boolean userExists(String username){
+        return repository.findUserByUsername(username).isPresent();
+    }
+
+    public User saveUser(User user){
+        return repository.save(user);
+    }
 }

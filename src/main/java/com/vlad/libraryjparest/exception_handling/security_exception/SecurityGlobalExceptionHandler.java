@@ -2,6 +2,7 @@ package com.vlad.libraryjparest.exception_handling.security_exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -17,6 +18,13 @@ public class SecurityGlobalExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<AuthIncorrectData> handleException(
             NoSuchRoleException exception){
+        AuthIncorrectData data = new AuthIncorrectData(exception.getMessage());
+        return new ResponseEntity<>(data, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<AuthIncorrectData> handleException(
+            UsernameNotFoundException exception){
         AuthIncorrectData data = new AuthIncorrectData(exception.getMessage());
         return new ResponseEntity<>(data, HttpStatus.NOT_FOUND);
     }
