@@ -63,9 +63,12 @@ The system calculates whether a client has exceeded the maximum time allowed for
 
 ## Authentication and Authorization
 The application uses JWT (JSON Web Tokens) for user authentication. Users are assigned roles (ADMIN, STAFF, USER) and have access to different endpoints based on their roles.
-ADMIN role has access to all endpoints
-STAFF role has access to all endpoint, but /auth/register
-USER role has access only to GET /books endpoint 
+
+ADMIN role has access to all endpoints.
+
+STAFF role has access to all endpoints but /auth/register endpoint.
+
+USER role has access only to GET /books endpoint.
 
 ## Database
 Spring Data JPA is used for interacting with the database, making it easy to manage clients, books, and their associations.
