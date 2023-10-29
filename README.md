@@ -1,5 +1,5 @@
 # REST API Library Management system
-The Library Management System is a Java Spring Boot application that provides RESTful API endpoints for managing books, clients, and their interactions in a library. The application utilizes Spring Security for authentication, Spring AOP for logging, Spring Data JPA for database operations, and JWT for user authentication. Users with different roles (ADMIN, STAFF, USER) can interact with the system to perform various tasks related to library management.
+The Library Management System is a RESTful Spring Boot application that provides API endpoints for managing books, clients, and their interactions in a library. The application utilizes Spring Security for authentication, Spring AOP for logging, Spring Data JPA for database operations, and JWT for user authentication. Users with different roles (ADMIN, STAFF, USER) can interact with the system to perform various tasks related to library management.
 
 ## Structure
 ```
