@@ -75,8 +75,8 @@ Spring Data JPA is used for interacting with the database, making it easy to man
 
 ## Getting Started
 Clone this repository to your local machine.
-Configure the application's database properties in the application.properties or application.yml file.
-Build and run the application
+Configure the application's database properties in the application.properties file.
+Build and run the application.
 
 ## Getting Started
 For questions or issues, please contact Vlad at vladpiven.mbox@gmail.com.
